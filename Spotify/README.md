@@ -1,33 +1,28 @@
 # Análisis de Datos - Spotify (Proyecto personal)
 
-Este repositorio contiene un análisis exploratorio rápido de un dataset de Spotify. El trabajo principal está en el notebook `spotify.ipynb` (y hay un notebook adicional `Untitled.ipynb`).
+Este repositorio contiene un análisis exploratorio rápido del dataset `spotify.csv`. El trabajo principal está en el notebook `spotify.ipynb`.
 
-## Qué hice
+## Resumen de lo que hice
 
 - Cargué el dataset `spotify.csv` y realicé una exploración inicial.
-- Añadí comentarios, encabezados y mensajes en español con un tono personal para que el notebook parezca hecho por mí.
-- Realicé un análisis básico de las variables numéricas: listé columnas numéricas, calculé mínimos, máximos, medias, medianas y desviaciones estándar.
-- Añadí una visualización rápida: histograma de la columna `popularity` (si existe en el CSV).
+- Documenté las celdas con comentarios en español y un tono personal.
+- Analicé las variables numéricas: listé columnas numéricas, obtuve mínimos/máximos, calculé media, mediana y desviación estándar.
+- Añadí una visualización rápida: histograma de `popularity` (si la columna está presente).
 - Incluí una sección de conclusiones con observaciones generales sobre popularidad, duración y otros atributos.
 
-## Estructura del repositorio (relevante)
+## Estructura relevante
 
-- `spotify.csv` — archivo con los datos (asegúrate de que está en la misma carpeta que los notebooks).
+- `spotify.csv` — dataset (debe estar en la misma carpeta que los notebooks o actualizar la ruta en la celda de carga).
 - `spotify.ipynb` — notebook principal con el análisis y visualizaciones.
-- `Untitled.ipynb` — notebook alternativo / versión previa del análisis.
-- `main.py` — (si existe) script auxiliar; revisa su contenido antes de ejecutarlo.
 
-## Requisitos
+## Requisitos mínimos
 
-- Python 3.8+ (se recomienda 3.10+)
-- Las siguientes librerías (puedes instalarlas con pip):
-  - pandas
-  - numpy
-  - matplotlib
-  - seaborn
-  - jupyter (opcional, si quieres abrir el notebook en Jupyter)
+- Python 3.8+ (recomendado 3.10+)
+- Librerías: pandas, numpy, matplotlib, seaborn
 
-Ejemplo para crear un entorno virtual y instalar dependencias (zsh/macOS):
+Recomendado: crear un entorno virtual y luego instalar las dependencias.
+
+Ejemplo (zsh / macOS):
 
 ```bash
 python3 -m venv venv
@@ -36,7 +31,7 @@ pip install --upgrade pip
 pip install pandas numpy matplotlib seaborn jupyter
 ```
 
-Si prefieres instalar solo lo necesario sin entorno virtual:
+Si no usas entorno virtual puedes instalar directo:
 
 ```bash
 pip install pandas numpy matplotlib seaborn
@@ -44,48 +39,31 @@ pip install pandas numpy matplotlib seaborn
 
 ## Cómo ejecutar el notebook
 
-Opción A — Abrir en Jupyter Notebook/Lab (recomendado si quieres ejecutar celda por celda):
+Opción A — Jupyter Notebook/Lab (recomendado para ejecutar celda a celda):
 
 ```bash
-# estando en la carpeta Spotify
+# estando en la carpeta `Spotify`
 jupyter notebook spotify.ipynb
 # o
 jupyter lab
 ```
 
-Opción B — Abrir en VS Code
+Opción B — VS Code:
 
 - Abre la carpeta `Spotify` en VS Code.
-- Haz click en `spotify.ipynb` y ejecuta las celdas con el kernel de Python que tenga las dependencias instaladas.
+- Abre `spotify.ipynb` y selecciona un kernel de Python con las dependencias instaladas. Ejecuta las celdas.
 
-Opción C — Ejecutar script (si `main.py` existe y es un runner):
+> Nota: si mueves `spotify.csv`, actualiza la ruta en la celda que carga el archivo.
 
-```bash
-python main.py
-```
+## Comprobaciones rápidas después de ejecutar
 
-Nota: El notebook asume que `spotify.csv` está en la misma carpeta; si lo mueves, actualiza la ruta en la celda de carga de datos.
+- `spotify.head()` debería mostrar las primeras filas sin errores.
+- La celda de información debe imprimir dimensiones, tipos y conteo de valores nulos.
+- Si existe `popularity`, verás un histograma; si no, la celda mostrará un aviso.
 
-## Verificaciones rápidas después de ejecutar
+## Ejemplo rápido de salida (lo que verás)
 
-- La celda de carga debe mostrar las primeras filas con `head()` sin errores.
-- La celda de exploración debe imprimir las dimensiones, columnas y conteo de nulos.
-- Si la columna `popularity` está presente, deberías ver un histograma. Si no, la celda imprimirá un mensaje indicando que falta la columna.
-
-## Siguientes pasos recomendados (opcionales)
-
-- Limpiar valores nulos: decidir imputación o eliminación según la columna.
-- Normalizar/transformar variables con distribuciones sesgadas (log, z-score).
-- Explorar correlaciones entre variables y construir un heatmap.
-- Crear visualizaciones adicionales: scatter tempo vs popularity, boxplots por género/artist, clustering.
-- Añadir un `requirements.txt` con las versiones exactas si vas a compartir el proyecto.
-
----
-
-Si quieres, puedo:
-
-- Crear un `requirements.txt` automáticamente con versiones aproximadas.
-- Ejecutar el notebook aquí para comprobar que corre (necesitaría permisos de ejecución del kernel en este entorno).
-- Añadir ejemplos de visualizaciones adicionales en el notebook.
-
-_Dime cuál de estos pasos quieres que haga a continuación._
+- Dimensiones (filas, columnas): `(N, M)`
+- Lista de columnas: `['name', 'artist', 'popularity', 'duration_ms', ...]`
+- Estadísticas básicas (media / mediana / std) para columnas numéricas.
+- Histograma de `popularity` (si aplica).
